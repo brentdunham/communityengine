@@ -44,22 +44,22 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth",                  ">= 1.1.4"
   s.add_dependency "rails_autolink",            ">= 0"
   s.add_dependency "paperclip",                 ">= 3.5.1"
-  s.add_dependency "power_enum",                "~> 2.0.1"
+  s.add_dependency "power_enum",                ">= 2.0.1"
   s.add_dependency "rack",                      ">= 1.5.2"
   s.add_dependency "rails",                     ">= 4.0.0"
   s.add_dependency "rails-observers",           ">= 0"
   s.add_dependency "rakismet",                  ">= 0"
-  s.add_dependency "ransack",                   "~> 1.0.0"
+  s.add_dependency "ransack",                   ">= 1.0.0"
   s.add_dependency "recaptcha",                 ">= 0"
   s.add_dependency "ri_cal",                    ">= 0"
   s.add_dependency "sanitize",                  ">= 2.0.6"
-  s.add_dependency "bootstrap-sass",            '~> 3.2.0'
+  s.add_dependency "bootstrap-sass",            '>= 3.2.0'
   s.add_dependency "bootstrap_form",            ">= 0"
   s.add_dependency "font-awesome-rails",        ">= 0"
   s.add_dependency "jquery-rails",              ">= 0"
-  s.add_dependency "jquery-ui-rails",           "~> 5.0.0"
-  s.add_dependency "sass-rails",                "~> 4.0.0"
+  s.add_dependency "jquery-ui-rails",           ">= 5.0.0"
+  s.add_dependency "sass-rails",                ">= 4.0.0"
   s.add_dependency "sprockets",                 ">= 2.10.0"
-  s.add_dependency "tinymce-rails",             "~> 4.0.2"
+  s.add_dependency "tinymce-rails",             ">= 4.0.2"
 end
 
