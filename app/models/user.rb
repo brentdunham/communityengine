@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   include UrlUpload
   include FacebookProfile
   include TwitterProfile
+  include SteamProfile
 
   include Rakismet::Model
   rakismet_attrs :author => :login, :comment_type => 'registration', :content => :description, :user_ip => :last_login_ip, :author_email => :email
@@ -245,6 +246,8 @@ class User < ActiveRecord::Base
   def avatar_photo_url(size = :original)
     if avatar_id
       avatar.photo.url(size)
+    elsif steam?
+      steam_authorization.picture_url
     elsif facebook?
       facebook_authorization.picture_url
     elsif twitter?
