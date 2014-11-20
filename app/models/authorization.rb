@@ -30,6 +30,10 @@ class Authorization < ActiveRecord::Base
     if existing_user
       self.user = existing_user
     elsif self.user
+      if self.user.password == nil
+        self.user.reset_password 
+        self.user.reset_persistence_token!
+      end
       self.user
     else
       self.user = User.find_or_create_from_authorization(self)

@@ -420,7 +420,7 @@ class User < ActiveRecord::Base
     user = User.where(:email => auth.email).first_or_initialize
     user.login ||= auth.nickname
 
-    if user.new_record?
+    if user.new_record? || user.password == nil
       new_password = user.newpass(8)
       user.password = new_password
       user.password_confirmation = new_password
