@@ -8,7 +8,7 @@ class Authorization < ActiveRecord::Base
   def self.find_or_create_from_hash(hash, existing_user = nil)
     if (auth = find_from_hash(hash))
       auth.assign_account_info(hash)
-      if auth.user.password == nil
+      if auth.user.crypted_password == nil
         auth.user.reset_password 
         auth.user.reset_persistence_token!
       end
