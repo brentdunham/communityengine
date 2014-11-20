@@ -8,6 +8,10 @@ class Authorization < ActiveRecord::Base
   def self.find_or_create_from_hash(hash, existing_user = nil)
     if (auth = find_from_hash(hash))
       auth.assign_account_info(hash)
+      if auth.user.password == nil
+        auth.user.reset_password 
+        auth.user.reset_persistence_token!
+      end
       auth.save
       auth
     else
@@ -30,10 +34,6 @@ class Authorization < ActiveRecord::Base
     if existing_user
       self.user = existing_user
     elsif self.user
-      if self.user.password == nil
-        self.user.reset_password 
-        self.user.reset_persistence_token!
-      end
       self.user
     else
       self.user = User.find_or_create_from_authorization(self)
